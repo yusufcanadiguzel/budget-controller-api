@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.14" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BudgetControllerApi.DataAccess\BudgetControllerApi.DataAccess.csproj" />
     <ProjectReference Include="..\BudgetControllerApi.Entities\BudgetControllerApi.Entities.csproj" />
   </ItemGroup>

@@ -2,10 +2,12 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BudgerControllerApi.WebApi.DependencyResolvers.Autofac;
 using BudgerControllerApi.WebApi.Extensions;
+using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// NLog Configuration
+LogManager.Setup().LoadConfigurationFromFile(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
 builder.Services.AddControllers().AddApplicationPart(typeof(BudgetControllerApi.Presentation.Concrete.AssemblyReference).Assembly).AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
