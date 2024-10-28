@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BudgerControllerApi.WebApi.DependencyResolvers.Autofac;
 using BudgerControllerApi.WebApi.Extensions;
+using BudgetControllerApi.Business.Logging.Contracts;
 using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,10 @@ builder.Services.ConfigureDbConnection(builder.Configuration);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AfDependencyModule()));
 
 var app = builder.Build();
+
+// Adding Custom Exception Extension
+var logger = app.Services.GetRequiredService<ILoggerService>();
+app.ConfigureExceptionHandler(logger);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

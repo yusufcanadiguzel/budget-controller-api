@@ -2,6 +2,7 @@
 using BudgetControllerApi.Business.Logging.Contracts;
 using BudgetControllerApi.DataAccess.Contracts;
 using BudgetControllerApi.Entities.Concrete;
+using BudgetControllerApi.Entities.Exceptions.Concrete;
 
 namespace BudgetControllerApi.Business.Concrete
 {
@@ -28,13 +29,7 @@ namespace BudgetControllerApi.Business.Concrete
             var store = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: false);
 
             if (store is null)
-            {
-                string message = $"Store with id: {id} could not found";
-
-                _logger.LogInfo(message);
-
-                throw new Exception(message);
-            }
+                throw new StoreNotFoundException(id: id);
                 
             _service.StoreRepository.DeleteOneStore(store: store);
 
@@ -52,6 +47,9 @@ namespace BudgetControllerApi.Business.Concrete
         {
             var store = _service.StoreRepository.GetOneStoreById(id:id, trackChanges: trackChanges);
 
+            if (store is null)
+                throw new StoreNotFoundException(id: id);
+
             return store;
         }
 
@@ -60,13 +58,7 @@ namespace BudgetControllerApi.Business.Concrete
             var storeEntity = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: trackChanges);
 
             if (storeEntity is null)
-            {
-                string message = $"Store with id: {id} could not found";
-
-                _logger.LogInfo(message);
-
-                throw new Exception(message);
-            }
+                throw new StoreNotFoundException(id: id);
                 
 
             if (store is null)
