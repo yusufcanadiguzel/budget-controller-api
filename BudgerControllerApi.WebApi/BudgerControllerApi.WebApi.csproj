@@ -26,6 +26,7 @@
     <ProjectReference Include="..\BudgetControllerApi.Business\BudgetControllerApi.Business.csproj" />
     <ProjectReference Include="..\BudgetControllerApi.DataAccess\BudgetControllerApi.DataAccess.csproj" />
     <ProjectReference Include="..\BudgetControllerApi.Presentation\BudgetControllerApi.Presentation.csproj" />
+    <ProjectReference Include="..\BudgetControllerApi.Shared\BudgetControllerApi.Shared.csproj" />
   </ItemGroup>
 
 </Project>

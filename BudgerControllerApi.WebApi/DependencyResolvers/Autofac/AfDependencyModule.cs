@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using AutoMapper;
+using BudgerControllerApi.WebApi.Utilities.Mapping.AutoMapper;
 using BudgetControllerApi.Business.Concrete;
 using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Business.Logging.Contracts;
@@ -25,6 +27,9 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
 
             // NLog Configuration
             builder.RegisterType<NlLoggerManager>().As<ILoggerService>();
+
+            // AutoMapper Configuration
+            builder.RegisterType<AmMappingProfile>().As<IMapper>();
 
             base.Load(builder);
         }

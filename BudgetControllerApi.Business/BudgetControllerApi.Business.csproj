@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.3.14" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BudgetControllerApi.DataAccess\BudgetControllerApi.DataAccess.csproj" />
     <ProjectReference Include="..\BudgetControllerApi.Entities\BudgetControllerApi.Entities.csproj" />
+    <ProjectReference Include="..\BudgetControllerApi.Shared\BudgetControllerApi.Shared.csproj" />
   </ItemGroup>
 
 </Project>

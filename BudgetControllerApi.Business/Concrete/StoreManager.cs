@@ -1,8 +1,10 @@
-﻿using BudgetControllerApi.Business.Contracts;
+﻿using AutoMapper;
+using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Business.Logging.Contracts;
 using BudgetControllerApi.DataAccess.Contracts;
 using BudgetControllerApi.Entities.Concrete;
 using BudgetControllerApi.Entities.Exceptions.Concrete;
+using BudgetControllerApi.Shared.Dtos.Store;
 
 namespace BudgetControllerApi.Business.Concrete
 {
@@ -10,11 +12,13 @@ namespace BudgetControllerApi.Business.Concrete
     {
         private readonly IRepositoryService _service;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public StoreManager(IRepositoryService service, ILoggerService logger)
+        public StoreManager(IRepositoryService service, ILoggerService logger, IMapper mapper)
         {
             _service = service;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public void CreateOneStore(Store store)
@@ -53,20 +57,14 @@ namespace BudgetControllerApi.Business.Concrete
             return store;
         }
 
-        public void UpdateOneStore(int id, Store store, bool trackChanges)
+        public void UpdateOneStore(int id, StoreDtoForUpdate storeDto, bool trackChanges)
         {
             var storeEntity = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: trackChanges);
 
             if (storeEntity is null)
                 throw new StoreNotFoundException(id: id);
-                
 
-            if (store is null)
-                throw new ArgumentNullException(nameof(store));
-
-            storeEntity.Name = store.Name;
-            storeEntity.Address = store.Address;
-            storeEntity.TaxNumber = store.TaxNumber;
+            _mapper.Map<Store>(storeDto);
 
             _service.StoreRepository.UpdateOneStore(store: storeEntity);
 

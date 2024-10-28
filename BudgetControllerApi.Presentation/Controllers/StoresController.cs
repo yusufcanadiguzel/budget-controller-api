@@ -1,6 +1,7 @@
 ﻿using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Entities.Concrete;
 using BudgetControllerApi.Entities.Exceptions.Concrete;
+using BudgetControllerApi.Shared.Dtos.Store;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,12 +46,12 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneStore([FromRoute(Name = "id")] int id, [FromBody] Store store)
+        public IActionResult UpdateOneStore([FromRoute(Name = "id")] int id, [FromBody] StoreDtoForUpdate storeDto)
         {
-            if (id != store.Id)
+            if (id != storeDto.Id)
                 return BadRequest();
 
-            _serviceManager.StoreService.UpdateOneStore(id: id, store: store, trackChanges: true);
+            _serviceManager.StoreService.UpdateOneStore(id: id, storeDto: storeDto, trackChanges: true);
 
             return NoContent();
         }
@@ -70,7 +71,7 @@ namespace BudgetControllerApi.Presentation.Controllers
 
             storePatch.ApplyTo(storeEntity);
 
-            _serviceManager.StoreService.UpdateOneStore(id: id, store: storeEntity, trackChanges: true);
+            _serviceManager.StoreService.UpdateOneStore(id: id, storeDto: new StoreDtoForUpdate { Id = storeEntity.Id, Name = storeEntity.Name, Address = storeEntity.Address, TaxNumber = storeEntity.TaxNumber}, trackChanges: true);
 
             return NoContent();
         }

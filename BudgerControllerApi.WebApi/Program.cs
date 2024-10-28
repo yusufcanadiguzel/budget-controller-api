@@ -21,6 +21,9 @@ builder.Services.ConfigureDbConnection(builder.Configuration);
 // Dependency Resolver
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AfDependencyModule()));
 
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
+
 var app = builder.Build();
 
 // Adding Custom Exception Extension
