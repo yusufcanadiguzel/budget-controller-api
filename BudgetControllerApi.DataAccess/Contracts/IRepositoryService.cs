@@ -4,6 +4,6 @@
     {
         IStoreRepository StoreRepository { get; }
 
-        void Save();
+        Task SaveAsync();
     }
 }

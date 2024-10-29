@@ -18,7 +18,7 @@ namespace BudgetControllerApi.DataAccess.Concrete.EFCore
         public async Task<IEnumerable<Store>> GetAllStoresAsync(bool trackChanges) => await FindAll(trackChanges).ToListAsync();
 
 
-        public Store GetOneStoreById(int id, bool trackChanges) => FindByCondition(s => s.Id.Equals(id), trackChanges).SingleOrDefault();
+        public async Task<Store> GetOneStoreByIdAsync(int id, bool trackChanges) => await FindByCondition(s => s.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
         public void UpdateOneStore(Store store) => Update(store);
     }

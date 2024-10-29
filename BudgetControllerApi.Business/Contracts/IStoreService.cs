@@ -5,12 +5,12 @@ namespace BudgetControllerApi.Business.Contracts
 {
     public interface IStoreService
     {
-        IEnumerable<StoreDto> GetAllStores(bool trackChanges);
-        StoreDto GetOneStoreById(int id, bool trackChanges);
-        StoreDto CreateOneStore(StoreDtoForCreate storeDtoForCreate);
-        void UpdateOneStore(int id, StoreDtoForUpdate storeDto, bool trackChanges);
-        void DeleteOneStore(int id);
-        (StoreDtoForUpdate storeDtoForUpdate, Store store) GetOneStoreForPatch(int id, bool trackChanges);
-        void SaveChangesForPatch(StoreDtoForUpdate storeDtoForUpdate, Store store);
+        Task<IEnumerable<StoreDto>> GetAllStoresAsync(bool trackChanges);
+        Task<StoreDto> GetOneStoreByIdAsync(int id, bool trackChanges);
+        Task<StoreDto> CreateOneStoreAsync(StoreDtoForCreate storeDtoForCreate);
+        Task UpdateOneStoreAsync(int id, StoreDtoForUpdate storeDto, bool trackChanges);
+        Task DeleteOneStoreAsync(int id);
+        Task<(StoreDtoForUpdate storeDtoForUpdate, Store store)> GetOneStoreForPatchAsync(int id, bool trackChanges);
+        Task SaveChangesForPatchAsync(StoreDtoForUpdate storeDtoForUpdate, Store store);
     }
 }

@@ -17,9 +17,9 @@ namespace BudgetControllerApi.DataAccess.Concrete
         }
 
         public IStoreRepository StoreRepository => _storeRepository.Value;
-        public void Save()
+        public async Task SaveAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

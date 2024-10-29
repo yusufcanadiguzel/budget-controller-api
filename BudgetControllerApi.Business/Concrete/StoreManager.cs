@@ -21,43 +21,43 @@ namespace BudgetControllerApi.Business.Concrete
             _mapper = mapper;
         }
 
-        public StoreDto CreateOneStore(StoreDtoForCreate storeDtoForCreate)
+        public async Task<StoreDto> CreateOneStoreAsync(StoreDtoForCreate storeDtoForCreate)
         {
             var store = _mapper.Map<Store>(storeDtoForCreate);
 
             _service.StoreRepository.CreateOneStore(store: store);
 
-            _service.Save();
+            await _service.SaveAsync();
 
             var storeDto = _mapper.Map<StoreDto>(store);
 
             return storeDto;
         }
 
-        public void DeleteOneStore(int id)
+        public async Task DeleteOneStoreAsync(int id)
         {
-            var store = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: false);
+            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: false);
 
             if (store is null)
                 throw new StoreNotFoundException(id: id);
                 
             _service.StoreRepository.DeleteOneStore(store: store);
 
-            _service.Save();
+            await _service.SaveAsync();
         }
 
-        public IEnumerable<StoreDto> GetAllStores(bool trackChanges)
+        public async Task<IEnumerable<StoreDto>> GetAllStoresAsync(bool trackChanges)
         {
-            var stores = _service.StoreRepository.GetAllStores(trackChanges: trackChanges);
+            var stores = await _service.StoreRepository.GetAllStoresAsync(trackChanges: trackChanges);
 
             var storeDtos = _mapper.Map<IEnumerable<StoreDto>>(stores);
 
             return storeDtos;
         }   
 
-        public StoreDto GetOneStoreById(int id, bool trackChanges)
+        public async Task<StoreDto> GetOneStoreByIdAsync(int id, bool trackChanges)
         {
-            var store = _service.StoreRepository.GetOneStoreById(id:id, trackChanges: trackChanges);
+            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id:id, trackChanges: trackChanges);
 
             if (store is null)
                 throw new StoreNotFoundException(id: id);
@@ -67,9 +67,9 @@ namespace BudgetControllerApi.Business.Concrete
             return storeDto;
         }
 
-        public (StoreDtoForUpdate storeDtoForUpdate, Store store) GetOneStoreForPatch(int id, bool trackChanges)
+        public async Task<(StoreDtoForUpdate storeDtoForUpdate, Store store)> GetOneStoreForPatchAsync(int id, bool trackChanges)
         {
-            var store = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: false);
+            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: false);
 
             if (store is null)
                 throw new StoreNotFoundException(id: id);
@@ -79,15 +79,15 @@ namespace BudgetControllerApi.Business.Concrete
             return (updateDto, store);
         }
 
-        public void SaveChangesForPatch(StoreDtoForUpdate storeDtoForUpdate, Store store)
+        public async Task SaveChangesForPatchAsync(StoreDtoForUpdate storeDtoForUpdate, Store store)
         {
             _mapper.Map(storeDtoForUpdate,  store);
-            _service.Save();
+            await _service.SaveAsync();
         }
 
-        public void UpdateOneStore(int id, StoreDtoForUpdate storeDto, bool trackChanges)
+        public async Task UpdateOneStoreAsync(int id, StoreDtoForUpdate storeDto, bool trackChanges)
         {
-            var storeEntity = _service.StoreRepository.GetOneStoreById(id: id, trackChanges: trackChanges);
+            var storeEntity = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: trackChanges);
 
             if (storeEntity is null)
                 throw new StoreNotFoundException(id: id);
@@ -96,7 +96,7 @@ namespace BudgetControllerApi.Business.Concrete
 
             _service.StoreRepository.UpdateOneStore(store: storeEntity);
 
-            _service.Save();
+            await _service.SaveAsync();
         }
     }
 }
