@@ -1,10 +1,10 @@
-﻿namespace BudgetControllerApi.Shared.Dtos.Store
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BudgetControllerApi.Shared.Dtos.Store
 {
-    public record StoreDtoForUpdate
+    public record StoreDtoForUpdate : StoreDtoForManipulation
     {
+        [Required(ErrorMessage = "Store id field is required.")]
         public int Id { get; init; }
-        public string Name { get; init; }
-        public string Address { get; init; }
-        public string TaxNumber { get; init; }
     }
 }

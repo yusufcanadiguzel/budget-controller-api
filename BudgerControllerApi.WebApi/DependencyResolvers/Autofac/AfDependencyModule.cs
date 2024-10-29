@@ -5,9 +5,12 @@ using BudgetControllerApi.Business.Concrete;
 using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Business.Logging.Contracts;
 using BudgetControllerApi.Business.Logging.NLog;
+using BudgetControllerApi.Business.Validation.FluentValidation;
 using BudgetControllerApi.DataAccess.Concrete;
 using BudgetControllerApi.DataAccess.Concrete.EFCore;
 using BudgetControllerApi.DataAccess.Contracts;
+using BudgetControllerApi.Shared.Dtos.Store;
+using FluentValidation;
 
 namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
 {
@@ -29,7 +32,10 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
             builder.RegisterType<NlLoggerManager>().As<ILoggerService>();
 
             // AutoMapper Configuration
-            builder.RegisterType<AmMappingProfile>().As<IMapper>();
+            //builder.RegisterType<AmMappingProfile>().As<IMapper>();
+
+            // Validator Configurations
+            //builder.RegisterType<StoreDtoForCreateValidator>().As<IValidator<StoreDtoForManipulation>>();
 
             base.Load(builder);
         }

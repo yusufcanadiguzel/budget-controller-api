@@ -1,6 +1,7 @@
 ﻿using BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts;
 using BudgetControllerApi.DataAccess.Contracts;
 using BudgetControllerApi.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetControllerApi.DataAccess.Concrete.EFCore
 {
@@ -14,7 +15,7 @@ namespace BudgetControllerApi.DataAccess.Concrete.EFCore
 
         public void DeleteOneStore(Store store) => Delete(store);
 
-        public IQueryable<Store> GetAllStores(bool trackChanges) => FindAll(trackChanges);
+        public async Task<IEnumerable<Store>> GetAllStoresAsync(bool trackChanges) => await FindAll(trackChanges).ToListAsync();
 
 
         public Store GetOneStoreById(int id, bool trackChanges) => FindByCondition(s => s.Id.Equals(id), trackChanges).SingleOrDefault();

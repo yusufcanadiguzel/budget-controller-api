@@ -32,3 +32,115 @@
 2024-10-28 14:43:05.8145 Info Configuration initialized.
 2024-10-28 17:33:15.7080 Info AppDomain Shutting down. LogFactory closing...
 2024-10-28 17:33:15.7168 Info LogFactory has been closed.
+2024-10-29 11:35:27.3873 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:35:27.3957 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:35:27.3957 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:35:27.4097 Info Configuration initialized.
+2024-10-29 11:35:36.5188 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:35:36.5300 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:35:36.5300 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:35:36.5472 Info Configuration initialized.
+2024-10-29 11:35:54.8997 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:35:54.9087 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:35:54.9087 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:35:54.9237 Info Configuration initialized.
+2024-10-29 11:37:22.4328 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:37:22.4448 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:37:22.4532 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:37:22.4532 Info Configuration initialized.
+2024-10-29 11:37:34.6763 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:37:34.6763 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:37:34.6924 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:37:34.6924 Info Configuration initialized.
+2024-10-29 11:38:11.6786 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:38:11.6925 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:38:11.7024 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:38:11.7024 Info Configuration initialized.
+2024-10-29 11:40:47.4662 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:40:47.4781 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:40:47.4875 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:40:47.4988 Info Configuration initialized.
+2024-10-29 11:47:36.0342 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:47:36.0342 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:47:36.0523 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:47:36.0628 Info Configuration initialized.
+2024-10-29 11:50:40.2543 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:50:40.2543 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:50:40.2713 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:50:40.2795 Info Configuration initialized.
+2024-10-29 11:55:53.1044 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:55:53.1171 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:55:53.1267 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:55:53.1388 Info Configuration initialized.
+2024-10-29 11:58:05.5459 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 11:58:05.5459 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 11:58:05.5459 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 11:58:05.5677 Info Configuration initialized.
+2024-10-29 12:00:01.4529 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:00:01.4620 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:00:01.4689 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:00:01.4689 Info Configuration initialized.
+2024-10-29 12:01:14.6981 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:01:14.7068 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:01:14.7068 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:01:14.7220 Info Configuration initialized.
+2024-10-29 12:04:55.9561 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:04:55.9561 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:04:55.9743 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:04:55.9843 Info Configuration initialized.
+2024-10-29 12:05:26.3809 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:05:26.3809 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:05:26.3958 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:05:26.3958 Info Configuration initialized.
+2024-10-29 12:06:36.5488 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:06:36.5488 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:06:36.5678 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:06:36.5770 Info Configuration initialized.
+2024-10-29 12:27:24.5883 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:27:24.6004 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:27:24.6101 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:27:24.6101 Info Configuration initialized.
+2024-10-29 12:37:29.9446 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 12:37:29.9529 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 12:37:29.9529 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 12:37:29.9529 Info Configuration initialized.
+2024-10-29 17:47:59.5585 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 17:47:59.5779 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 17:47:59.5779 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 17:47:59.5940 Info Configuration initialized.
+2024-10-29 17:48:06.8106 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 17:48:06.8193 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 17:48:06.8270 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 17:48:06.8270 Info Configuration initialized.
+2024-10-29 19:50:21.9366 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 19:50:21.9366 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 19:50:21.9518 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 19:50:21.9518 Info Configuration initialized.
+2024-10-29 20:00:24.2725 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:00:24.2806 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:00:24.2806 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:00:24.2806 Info Configuration initialized.
+2024-10-29 20:50:29.4506 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:50:29.4601 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:50:29.4671 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:50:29.4671 Info Configuration initialized.
+2024-10-29 20:52:18.5339 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:52:18.5497 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:52:18.5497 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:52:18.5728 Info Configuration initialized.
+2024-10-29 20:52:22.7548 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:52:22.7648 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:52:22.7648 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:52:22.7823 Info Configuration initialized.
+2024-10-29 20:52:48.9220 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:52:48.9343 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:52:48.9417 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:52:48.9541 Info Configuration initialized.
+2024-10-29 20:53:25.7754 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:53:25.7845 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:53:25.7845 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:53:25.7998 Info Configuration initialized.
+2024-10-29 20:54:09.9439 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-10-29 20:54:09.9522 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.4.2778. Product version: 5.3.4+73d83d3161d31288ca5c554cc50d27b6bed5f28b. GlobalAssemblyCache: False
+2024-10-29 20:54:09.9522 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Development\C#\BudgetControllerApi\BudgerControllerApi.WebApi\nlog.config
+2024-10-29 20:54:09.9522 Info Configuration initialized.

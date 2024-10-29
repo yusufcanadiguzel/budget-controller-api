@@ -8,7 +8,9 @@ namespace BudgerControllerApi.WebApi.Utilities.Mapping.AutoMapper
     {
         public AmMappingProfile()
         {
-            CreateMap<StoreDtoForUpdate, Store>();
+            CreateMap<StoreDtoForUpdate, Store>().ReverseMap();
+            CreateMap<Store, StoreDto>();
+            CreateMap<StoreDtoForCreate, Store>();
         }
     }
 }

@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using BudgerControllerApi.WebApi.DependencyResolvers.Autofac;
 using BudgerControllerApi.WebApi.Extensions;
 using BudgetControllerApi.Business.Logging.Contracts;
+using Microsoft.AspNetCore.Mvc;
 using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,25 @@ var builder = WebApplication.CreateBuilder(args);
 // NLog Configuration
 LogManager.Setup().LoadConfigurationFromFile(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
-builder.Services.AddControllers().AddApplicationPart(typeof(BudgetControllerApi.Presentation.Concrete.AssemblyReference).Assembly).AddNewtonsoftJson();
+builder.Services.AddControllers(config =>
+{
+    // Content Negotiation
+    config.RespectBrowserAcceptHeader = true;
+
+    // Return Code 406
+    config.ReturnHttpNotAcceptable = true;
+})
+// XML Content Output
+.AddXmlDataContractSerializerFormatters()
+.AddApplicationPart(typeof(BudgetControllerApi.Presentation.Concrete.AssemblyReference).Assembly)
+.AddNewtonsoftJson();
+
+// Configure Api Behavior About Validation
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

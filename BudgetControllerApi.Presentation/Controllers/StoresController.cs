@@ -35,14 +35,17 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneStore([FromBody] Store store)
+        public IActionResult CreateOneStore([FromBody] StoreDtoForCreate storeDtoForCreate)
         {
-            if (store is null)
+            if (storeDtoForCreate is null)
                 return BadRequest();
 
-            _serviceManager.StoreService.CreateOneStore(store: store);
+            if(!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
-            return StatusCode(201, store);
+            var storeDto = _serviceManager.StoreService.CreateOneStore(storeDtoForCreate: storeDtoForCreate);
+
+            return StatusCode(201, storeDto);
         }
 
         [HttpPut("{id:int}")]
@@ -51,7 +54,10 @@ namespace BudgetControllerApi.Presentation.Controllers
             if (id != storeDto.Id)
                 return BadRequest();
 
-            _serviceManager.StoreService.UpdateOneStore(id: id, storeDto: storeDto, trackChanges: true);
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _serviceManager.StoreService.UpdateOneStore(id: id, storeDto: storeDto, trackChanges: false);
 
             return NoContent();
         }
@@ -65,13 +71,21 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpPatch("{id:int}")]
-        public IActionResult PartiallyUpdateOneStore([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<Store> storePatch)
+        public IActionResult PartiallyUpdateOneStore([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<StoreDtoForUpdate> storePatch)
         {
-            var storeEntity = _serviceManager.StoreService.GetOneStoreById(id: id, trackChanges: true);
+            if (storePatch is null)
+                return BadRequest();
 
-            storePatch.ApplyTo(storeEntity);
+            var result = _serviceManager.StoreService.GetOneStoreForPatch(id: id, trackChanges: false);
 
-            _serviceManager.StoreService.UpdateOneStore(id: id, storeDto: new StoreDtoForUpdate { Id = storeEntity.Id, Name = storeEntity.Name, Address = storeEntity.Address, TaxNumber = storeEntity.TaxNumber}, trackChanges: true);
+            storePatch.ApplyTo(result.storeDtoForUpdate, ModelState);
+
+            TryValidateModel(result.storeDtoForUpdate);
+
+            if(!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _serviceManager.StoreService.SaveChangesForPatch(result.storeDtoForUpdate, result.store);
 
             return NoContent();
         }
