@@ -1,10 +1,12 @@
 ﻿using BudgetControllerApi.Business.Contracts;
+using BudgetControllerApi.Presentation.ActionFilters;
 using BudgetControllerApi.Shared.Dtos.Store;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetControllerApi.Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/[controller]")]
     [ApiController]
     public class StoresController : ControllerBase
@@ -32,29 +34,19 @@ namespace BudgetControllerApi.Presentation.Controllers
             return Ok(store);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneStoreAsync([FromBody] StoreDtoForCreate storeDtoForCreate)
         {
-            if (storeDtoForCreate is null)
-                return BadRequest();
-
-            if(!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
             var storeDto = await _serviceManager.StoreService.CreateOneStoreAsync(storeDtoForCreate: storeDtoForCreate);
 
             return StatusCode(201, storeDto);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneStoreAsync([FromRoute(Name = "id")] int id, [FromBody] StoreDtoForUpdate storeDto)
         {
-            if (id != storeDto.Id)
-                return BadRequest();
-
-            if (!ModelState.IsValid)
-                return UnprocessableEntity(ModelState);
-
             await _serviceManager.StoreService.UpdateOneStoreAsync(id: id, storeDto: storeDto, trackChanges: false);
 
             return NoContent();

@@ -9,6 +9,7 @@ using BudgetControllerApi.Business.Validation.FluentValidation;
 using BudgetControllerApi.DataAccess.Concrete;
 using BudgetControllerApi.DataAccess.Concrete.EFCore;
 using BudgetControllerApi.DataAccess.Contracts;
+using BudgetControllerApi.Presentation.ActionFilters;
 using BudgetControllerApi.Shared.Dtos.Store;
 using FluentValidation;
 
@@ -31,8 +32,9 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
             // NLog Configuration
             builder.RegisterType<NlLoggerManager>().As<ILoggerService>();
 
-            // AutoMapper Configuration
-            //builder.RegisterType<AmMappingProfile>().As<IMapper>();
+            // Action Filters Registration
+            builder.RegisterType<ValidationFilterAttribute>().InstancePerLifetimeScope();
+            builder.RegisterType<LogFilterAttribute>().SingleInstance();
 
             // Validator Configurations
             //builder.RegisterType<StoreDtoForCreateValidator>().As<IValidator<StoreDtoForManipulation>>();

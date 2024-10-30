@@ -36,10 +36,7 @@ namespace BudgetControllerApi.Business.Concrete
 
         public async Task DeleteOneStoreAsync(int id)
         {
-            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: false);
-
-            if (store is null)
-                throw new StoreNotFoundException(id: id);
+            var store = await GetOneStoreByIdAndCheckExists(id: id, trackChanges: false);
                 
             _service.StoreRepository.DeleteOneStore(store: store);
 
@@ -57,10 +54,7 @@ namespace BudgetControllerApi.Business.Concrete
 
         public async Task<StoreDto> GetOneStoreByIdAsync(int id, bool trackChanges)
         {
-            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id:id, trackChanges: trackChanges);
-
-            if (store is null)
-                throw new StoreNotFoundException(id: id);
+            var store = await GetOneStoreByIdAndCheckExists(id: id, trackChanges: trackChanges);
 
             var storeDto = _mapper.Map<StoreDto>(store);
 
@@ -69,10 +63,7 @@ namespace BudgetControllerApi.Business.Concrete
 
         public async Task<(StoreDtoForUpdate storeDtoForUpdate, Store store)> GetOneStoreForPatchAsync(int id, bool trackChanges)
         {
-            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: false);
-
-            if (store is null)
-                throw new StoreNotFoundException(id: id);
+            var store = await GetOneStoreByIdAndCheckExists(id: id, trackChanges: trackChanges);
 
             var updateDto = _mapper.Map<StoreDtoForUpdate>(store);
 
@@ -87,16 +78,23 @@ namespace BudgetControllerApi.Business.Concrete
 
         public async Task UpdateOneStoreAsync(int id, StoreDtoForUpdate storeDto, bool trackChanges)
         {
-            var storeEntity = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: trackChanges);
-
-            if (storeEntity is null)
-                throw new StoreNotFoundException(id: id);
+            var storeEntity = await GetOneStoreByIdAndCheckExists(id: id, trackChanges: trackChanges);
 
             storeEntity = _mapper.Map<Store>(storeDto);
 
             _service.StoreRepository.UpdateOneStore(store: storeEntity);
 
             await _service.SaveAsync();
+        }
+
+        private async Task<Store> GetOneStoreByIdAndCheckExists(int id, bool trackChanges)
+        {
+            var store = await _service.StoreRepository.GetOneStoreByIdAsync(id: id, trackChanges: false);
+
+            if (store is null)
+                throw new StoreNotFoundException(id: id);
+
+            return store;
         }
     }
 }
