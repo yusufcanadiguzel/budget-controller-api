@@ -1,8 +1,10 @@
 ﻿using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Presentation.ActionFilters;
 using BudgetControllerApi.Shared.Dtos.Store;
+using BudgetControllerApi.Shared.RequestFeatures.Concrete;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace BudgetControllerApi.Presentation.Controllers
 {
@@ -19,11 +21,13 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllStoresAsync()
+        public async Task<IActionResult> GetAllStoresAsync([FromQuery] StoreRequestParameters storeRequestParameters)
         {
-            var stores = await _serviceManager.StoreService.GetAllStoresAsync(trackChanges: false);
+            var pagedResult = await _serviceManager.StoreService.GetAllStoresAsync(storeRequestParameters: storeRequestParameters, trackChanges: false);
 
-            return Ok(stores);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+
+            return Ok(pagedResult.storeDtos);
         }
 
         [HttpGet("{id:int}")]

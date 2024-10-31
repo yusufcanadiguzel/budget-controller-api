@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BudgetControllerApi.Entities\BudgetControllerApi.Entities.csproj" />
+    <ProjectReference Include="..\BudgetControllerApi.Shared\BudgetControllerApi.Shared.csproj" />
   </ItemGroup>
 
 </Project>

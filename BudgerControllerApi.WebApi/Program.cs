@@ -43,6 +43,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).Conf
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.ConfigureCors();
+
 var app = builder.Build();
 
 // Adding Custom Exception Extension
@@ -56,7 +58,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+if(app.Environment.IsProduction())
+    app.UseHsts();
+
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

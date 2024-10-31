@@ -5,6 +5,7 @@ using BudgetControllerApi.DataAccess.Contracts;
 using BudgetControllerApi.Entities.Concrete;
 using BudgetControllerApi.Entities.Exceptions.Concrete;
 using BudgetControllerApi.Shared.Dtos.Store;
+using BudgetControllerApi.Shared.RequestFeatures.Concrete;
 
 namespace BudgetControllerApi.Business.Concrete
 {
@@ -43,13 +44,13 @@ namespace BudgetControllerApi.Business.Concrete
             await _service.SaveAsync();
         }
 
-        public async Task<IEnumerable<StoreDto>> GetAllStoresAsync(bool trackChanges)
+        public async Task<(IEnumerable<StoreDto> storeDtos, MetaData metaData)> GetAllStoresAsync(StoreRequestParameters storeRequestParameters, bool trackChanges)
         {
-            var stores = await _service.StoreRepository.GetAllStoresAsync(trackChanges: trackChanges);
+            var storesWithMetaData = await _service.StoreRepository.GetAllStoresAsync(storeRequestParameters: storeRequestParameters, trackChanges: trackChanges);
 
-            var storeDtos = _mapper.Map<IEnumerable<StoreDto>>(stores);
+            var storeDtos = _mapper.Map<IEnumerable<StoreDto>>(storesWithMetaData);
 
-            return storeDtos;
+            return (storeDtos, storesWithMetaData.MetaData);
         }   
 
         public async Task<StoreDto> GetOneStoreByIdAsync(int id, bool trackChanges)
