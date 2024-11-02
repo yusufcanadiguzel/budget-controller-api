@@ -4,6 +4,7 @@ using BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgerControllerApi.WebApi.Migrations
 {
     [DbContext(typeof(BudgetControllerDbContext))]
-    partial class BudgetControllerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101181741_AddRefreshTokenFields")]
+    partial class AddRefreshTokenFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

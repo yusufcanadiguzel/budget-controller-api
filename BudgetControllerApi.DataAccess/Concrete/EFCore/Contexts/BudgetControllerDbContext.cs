@@ -1,10 +1,12 @@
 ﻿using BudgetControllerApi.DataAccess.Concrete.EFCore.Config;
 using BudgetControllerApi.Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts
 {
-    public class BudgetControllerDbContext : DbContext
+    public class BudgetControllerDbContext : IdentityDbContext<User>
     {
         public BudgetControllerDbContext(DbContextOptions<BudgetControllerDbContext> options) : base(options)
         {
@@ -15,7 +17,8 @@ namespace BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new StoreConfig());
+            // Get all IEntityTypeConfigurations from executing Assembly
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(modelBuilder);
         }

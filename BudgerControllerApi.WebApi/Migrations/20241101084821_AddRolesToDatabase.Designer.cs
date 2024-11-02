@@ -4,6 +4,7 @@ using BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgerControllerApi.WebApi.Migrations
 {
     [DbContext(typeof(BudgetControllerDbContext))]
-    partial class BudgetControllerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101084821_AddRolesToDatabase")]
+    partial class AddRolesToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,12 +107,6 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RefreshTokenExpireTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -162,19 +159,19 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "27301b66-8496-4395-bbdf-bd4047ad42d6",
+                            Id = "f62b97da-2c6e-4981-874e-728369c7a802",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "fe688989-b707-4b7f-9e50-fb092e0c8e98",
+                            Id = "9a250bc3-24bf-4019-aa6a-03f68d22e473",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "9be2bb95-ea10-4d47-ac31-f326be136dde",
+                            Id = "e8c2837c-f034-48f2-b2c2-ad0c57315f08",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

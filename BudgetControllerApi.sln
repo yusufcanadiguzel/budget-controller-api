@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.Entitie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.DataAccess", "BudgetControllerApi.DataAccess\BudgetControllerApi.DataAccess.csproj", "{38065338-A12D-4A7F-AD86-87CAE9C3B6D8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgerControllerApi.WebApi", "BudgerControllerApi.WebApi\BudgerControllerApi.WebApi.csproj", "{62450B3D-35E7-4DE6-A112-508B07771C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.WebApi", "BudgerControllerApi.WebApi\BudgetControllerApi.WebApi.csproj", "{62450B3D-35E7-4DE6-A112-508B07771C47}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.Business", "BudgetControllerApi.Business\BudgetControllerApi.Business.csproj", "{AB3A8048-1AF2-4CD3-8ECF-674F7B30DF82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.Presentation", "BudgetControllerApi.Presentation\BudgetControllerApi.Presentation.csproj", "{63256AD2-D9CB-4520-B4BF-B8DBC20200AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetControllerApi.Shared", "BudgetControllerApi.Shared\BudgetControllerApi.Shared.csproj", "{0E920046-CD8F-40D7-A633-246FA98CEF8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetControllerApi.Shared", "BudgetControllerApi.Shared\BudgetControllerApi.Shared.csproj", "{0E920046-CD8F-40D7-A633-246FA98CEF8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

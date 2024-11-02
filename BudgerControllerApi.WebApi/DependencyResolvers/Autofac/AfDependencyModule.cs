@@ -39,6 +39,9 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
             // Validator Configurations
             //builder.RegisterType<StoreDtoForCreateValidator>().As<IValidator<StoreDtoForManipulation>>();
 
+            // Authentication Registration
+            builder.RegisterType<AuthenticationManager>().As<IAuthenticationService>();
+
             base.Load(builder);
         }
     }

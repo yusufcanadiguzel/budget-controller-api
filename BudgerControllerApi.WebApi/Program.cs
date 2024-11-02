@@ -45,6 +45,10 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.ConfigureCors();
 
+// Identity Service Registration
+builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJwt(builder.Configuration);
+
 var app = builder.Build();
 
 // Adding Custom Exception Extension
@@ -64,6 +68,8 @@ if(app.Environment.IsProduction())
 app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
