@@ -8,5 +8,6 @@ namespace BudgetControllerApi.Entities.Concrete
         public string Name { get; set; }
         public string Address { get; set; }
         public string TaxNumber { get; set; }
+        public ICollection<Receipt> Receipts { get; set; }
     }
 }

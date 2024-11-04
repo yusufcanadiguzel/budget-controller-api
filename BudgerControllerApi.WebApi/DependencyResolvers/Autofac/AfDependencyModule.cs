@@ -26,6 +26,10 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
             builder.RegisterType<EfStoreRepository>().As<IStoreRepository>();
             builder.RegisterType<StoreManager>().As<IStoreService>();
 
+            // Receipt Registration
+            builder.RegisterType<EfReceiptRepository>().As<IReceiptRepository>();
+            builder.RegisterType<ReceiptManager>().As<IReceiptService>();
+
             // Service Configuration
             builder.RegisterType<ServiceManager>().As<IServiceManager>();
 

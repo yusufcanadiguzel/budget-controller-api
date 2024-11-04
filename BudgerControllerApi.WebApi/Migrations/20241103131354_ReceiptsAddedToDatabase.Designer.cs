@@ -4,6 +4,7 @@ using BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgerControllerApi.WebApi.Migrations
 {
     [DbContext(typeof(BudgetControllerDbContext))]
-    partial class BudgetControllerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241103131354_ReceiptsAddedToDatabase")]
+    partial class ReceiptsAddedToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,26 +36,12 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StoreId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StoreId");
-
                     b.ToTable("Receipts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2024, 11, 3, 19, 5, 37, 426, DateTimeKind.Local).AddTicks(4631),
-                            StoreId = 1,
-                            TotalPrice = 138m
-                        });
                 });
 
             modelBuilder.Entity("BudgetControllerApi.Entities.Concrete.Store", b =>
@@ -195,19 +184,19 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9e4af03e-933d-4ada-aa8d-3bdc9c24dc66",
+                            Id = "e9499447-a657-4187-99a2-5e0f67c1da8d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2efdddec-d0b8-44b5-a721-782ae46301ba",
+                            Id = "f183b4d9-c392-4b0c-b8d0-1c3e124eb633",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "cb3fda81-de94-4e23-b91d-04808b66c809",
+                            Id = "79735d2b-80ef-4fe2-a625-d2d1ef7bf3fe",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -319,17 +308,6 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BudgetControllerApi.Entities.Concrete.Receipt", b =>
-                {
-                    b.HasOne("BudgetControllerApi.Entities.Concrete.Store", "Store")
-                        .WithMany("Receipts")
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Store");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -379,11 +357,6 @@ namespace BudgerControllerApi.WebApi.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BudgetControllerApi.Entities.Concrete.Store", b =>
-                {
-                    b.Navigation("Receipts");
                 });
 #pragma warning restore 612, 618
         }

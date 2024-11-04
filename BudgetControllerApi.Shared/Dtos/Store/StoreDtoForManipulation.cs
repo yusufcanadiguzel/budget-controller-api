@@ -10,7 +10,6 @@ namespace BudgetControllerApi.Shared.Dtos.Store
         public string Name { get; init; }
 
         [Required(ErrorMessage = "Store address field is required.")]
-        [Range(3, 250, ErrorMessage = "Store address field is must be between 3 and 250 characters long.")]
         public string Address { get; init; }
 
         [Required(ErrorMessage = "Store tax number field is required.")]

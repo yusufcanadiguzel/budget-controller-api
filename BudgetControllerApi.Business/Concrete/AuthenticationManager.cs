@@ -72,6 +72,7 @@ namespace BudgetControllerApi.Business.Concrete
             if (!result)
                 _loggerService.LogWarning($"{nameof(ValidateUser)} : Authentication failed. Wrong username or password.");
 
+
             return result;
         }
 

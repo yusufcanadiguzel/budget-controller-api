@@ -14,6 +14,7 @@ namespace BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts
         }
 
         public DbSet<Store> Stores => Set<Store>();
+        public DbSet<Receipt> Receipts => Set<Receipt>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
