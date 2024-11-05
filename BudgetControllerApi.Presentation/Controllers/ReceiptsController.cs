@@ -1,6 +1,7 @@
 ﻿using BudgetControllerApi.Business.Contracts;
 using BudgetControllerApi.Presentation.ActionFilters;
 using BudgetControllerApi.Shared.Dtos.Receipt;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetControllerApi.Presentation.Controllers
@@ -18,6 +19,7 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> GetAllReceiptsAsync()
         {
             var receipts = await _serviceManager.ReceiptService.GetAllReceiptsAsync(trackChanges: false);
@@ -26,6 +28,7 @@ namespace BudgetControllerApi.Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> GetOneReceiptByIdAsync([FromRoute(Name = "id")] int id)
         {
             var receipt = await _serviceManager.ReceiptService.GetOneReceiptByIdAsync(id: id, trackChanges: false);
@@ -35,23 +38,26 @@ namespace BudgetControllerApi.Presentation.Controllers
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> CreateOneReceipt([FromBody] ReceiptDtoForCreate receiptDtoForCreate)
         {
             var result = await _serviceManager.ReceiptService.CreateOneReceiptAsync(receiptDtoForCreate: receiptDtoForCreate);
 
-            return Ok(result);
+            return StatusCode(201, result);
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> UpdateOneReceipt([FromRoute(Name = "id")]int id, [FromBody] ReceiptDtoForUpdate receiptDtoForUpdate)
         {
-            await _serviceManager.ReceiptService.UpdateOneReceiptAsync(receiptDtoForUpdate: receiptDtoForUpdate, trackChanges: false);
+            var result = await _serviceManager.ReceiptService.UpdateOneReceiptAsync(receiptDtoForUpdate: receiptDtoForUpdate, trackChanges: false);
 
-            return NoContent();
+            return Ok(result);
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> DeleteOneReceipt([FromRoute(Name = "id")] int id)
         {
             await _serviceManager.ReceiptService.DeleteOneReceiptAsync(id: id);

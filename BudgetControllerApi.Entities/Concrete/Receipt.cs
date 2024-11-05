@@ -18,5 +18,7 @@ namespace BudgetControllerApi.Entities.Concrete
 
         public int StoreId { get; set; }
         public Store Store { get; set; }
+
+        public List<ReceiptProduct> ReceiptProducts { get; set; }
     }
 }

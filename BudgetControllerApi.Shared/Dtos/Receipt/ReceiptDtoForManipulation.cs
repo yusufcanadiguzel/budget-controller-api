@@ -2,7 +2,7 @@
 
 namespace BudgetControllerApi.Shared.Dtos.Receipt
 {
-    public record ReceiptDtoForManipulation
+    public abstract record ReceiptDtoForManipulation
     {
         [Required(ErrorMessage = "Total price is required.")]
         [Range(0, double.MaxValue, ErrorMessage = "Price must be a positive value.")]

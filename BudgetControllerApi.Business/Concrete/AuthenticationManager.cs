@@ -42,7 +42,7 @@ namespace BudgetControllerApi.Business.Concrete
             _user.RefreshToken = refreshToken;
 
             if (populateExpireTime)
-                _user.RefreshTokenExpireTime = DateTime.Now.AddDays(7);
+                _user.RefreshTokenExpireTime = DateTime.Now.AddDays(1);
 
             await _userManager.UpdateAsync(_user);
 
@@ -58,11 +58,12 @@ namespace BudgetControllerApi.Business.Concrete
             var result = await _userManager.CreateAsync(user, userDtoForRegistration.Password);
 
             if (result.Succeeded)
-                await _userManager.AddToRolesAsync(user, userDtoForRegistration.Roles);
+                await _userManager.AddToRolesAsync(user, ["Customer"]);
 
             return result;
         }
 
+        // Login with username
         public async Task<bool> ValidateUser(UserDtoForAuthentication userDtoForAuthentication)
         {
             _user = await _userManager.FindByNameAsync(userDtoForAuthentication.UserName);

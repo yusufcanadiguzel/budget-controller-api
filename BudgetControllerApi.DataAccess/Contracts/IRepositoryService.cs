@@ -4,6 +4,8 @@
     {
         IStoreRepository StoreRepository { get; }
         IReceiptRepository ReceiptRepository { get; }
+        IProductRepository ProductRepository { get; }
+        IReceiptProductRepository ReceiptProductRepository { get; }
 
         Task SaveAsync();
     }

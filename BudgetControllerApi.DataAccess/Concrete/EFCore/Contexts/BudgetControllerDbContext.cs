@@ -1,5 +1,4 @@
-﻿using BudgetControllerApi.DataAccess.Concrete.EFCore.Config;
-using BudgetControllerApi.Entities.Concrete;
+﻿using BudgetControllerApi.Entities.Concrete;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -15,6 +14,8 @@ namespace BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts
 
         public DbSet<Store> Stores => Set<Store>();
         public DbSet<Receipt> Receipts => Set<Receipt>();
+        public DbSet<Product> Products => Set<Product>();
+        public DbSet<ReceiptProduct> ReceiptProducts => Set<ReceiptProduct>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

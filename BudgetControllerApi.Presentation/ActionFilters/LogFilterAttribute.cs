@@ -14,6 +14,7 @@ namespace BudgetControllerApi.Presentation.ActionFilters
             _loggerService = loggerService;
         }
 
+        // Log exucuting action
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             _loggerService.LogInfo(Log("OnActionExecuting", context.RouteData));
@@ -28,6 +29,7 @@ namespace BudgetControllerApi.Presentation.ActionFilters
                 Action = routeData.Values["action"]
             };
 
+            // baseUrl / api / controller / id(4)
             if(routeData.Values.Count > 3)
             {
                 logDetail.Id = routeData.Values["Id"];

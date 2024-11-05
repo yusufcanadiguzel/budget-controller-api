@@ -4,6 +4,7 @@ using BudgetControllerApi.DataAccess.Concrete.EFCore.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgerControllerApi.WebApi.Migrations
 {
     [DbContext(typeof(BudgetControllerDbContext))]
-    partial class BudgetControllerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241105091514_ProductAndReceiptProductEntitiesAdded")]
+    partial class ProductAndReceiptProductEntitiesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +72,7 @@ namespace BudgerControllerApi.WebApi.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 11, 5, 17, 53, 35, 316, DateTimeKind.Local).AddTicks(4354),
+                            CreatedDate = new DateTime(2024, 11, 5, 12, 15, 14, 396, DateTimeKind.Local).AddTicks(5283),
                             StoreId = 1,
                             TotalPrice = 138m
                         });
@@ -96,14 +99,6 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.HasIndex("ReceiptId");
 
                     b.ToTable("ReceiptProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ProductId = 1,
-                            ReceiptId = 2
-                        });
                 });
 
             modelBuilder.Entity("BudgetControllerApi.Entities.Concrete.Store", b =>
@@ -246,19 +241,19 @@ namespace BudgerControllerApi.WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c128b0f0-a749-4aac-94ab-975a9ddc3c31",
+                            Id = "ae5c69ef-d75d-405a-9ba3-9be8276c45f7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "57b04f27-dbf5-4c24-ae7a-2ebce4ddd155",
+                            Id = "d85dfdef-af8e-4b1e-919d-6396e1da8291",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "5dc47954-3134-4935-97ea-1a0def25c579",
+                            Id = "14835b33-1e00-43fa-959b-b5f7abd0e4c8",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

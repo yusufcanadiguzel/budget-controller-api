@@ -6,6 +6,7 @@ namespace BudgerControllerApi.WebApi.ContextFactory
 {
     public class RepositoryContextFactory : IDesignTimeDbContextFactory<BudgetControllerDbContext>
     {
+        // DbContext Config
         public BudgetControllerDbContext CreateDbContext(string[] args)
         {
             // Configuration

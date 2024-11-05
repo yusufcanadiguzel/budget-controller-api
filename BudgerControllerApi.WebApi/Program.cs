@@ -18,6 +18,9 @@ builder.Services.AddControllers(config =>
 
     // Return Code 406
     config.ReturnHttpNotAcceptable = true;
+
+    // Add Caching Profile
+    config.CacheProfiles.Add("5mins", new CacheProfile { Duration = 300 });
 })
 // XML Content Output
 .AddXmlDataContractSerializerFormatters()
@@ -49,6 +52,10 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJwt(builder.Configuration);
 
+// Response Cache Registration
+builder.Services.ConfigureResponseCache();
+builder.Services.ConfigureHttpCacheHeaders();
+
 var app = builder.Build();
 
 // Adding Custom Exception Extension
@@ -68,6 +75,10 @@ if(app.Environment.IsProduction())
 app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
+
+app.UseResponseCaching();
+
+app.UseHttpCacheHeaders();
 
 app.UseAuthentication();
 

@@ -46,6 +46,14 @@ namespace BudgerControllerApi.WebApi.DependencyResolvers.Autofac
             // Authentication Registration
             builder.RegisterType<AuthenticationManager>().As<IAuthenticationService>();
 
+            // Product Registration
+            builder.RegisterType<EfProductRepository>().As<IProductRepository>();
+            builder.RegisterType<ProductManager>().As<IProductService>();
+
+            // Receipt Product Registration
+            builder.RegisterType<EfReceiptProductRepository>().As<IReceiptProductRepository>();
+            builder.RegisterType<ReceiptProductManager>().As<IReceiptProductService>();
+
             base.Load(builder);
         }
     }

@@ -10,6 +10,7 @@ namespace BudgerControllerApi.WebApi.Extensions
 {
     public static class ServiceExtensions
     {
+        // DbContext Config
         public static void ConfigureDbConnection(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<BudgetControllerDbContext>(options =>
@@ -18,6 +19,7 @@ namespace BudgerControllerApi.WebApi.Extensions
             });
         }
 
+        // Cors Config
         public static void ConfigureCors(this IServiceCollection services)
         {
             services.AddCors(options =>
@@ -32,6 +34,7 @@ namespace BudgerControllerApi.WebApi.Extensions
             });
         }
 
+        // Identity Config
         public static void ConfigureIdentity(this IServiceCollection services)
         {
             services.AddIdentity<User, IdentityRole>(options =>
@@ -48,6 +51,7 @@ namespace BudgerControllerApi.WebApi.Extensions
                 .AddDefaultTokenProviders();
         }
 
+        // Jwt Config
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
@@ -70,5 +74,18 @@ namespace BudgerControllerApi.WebApi.Extensions
                 };
             });
         }
+        
+        // Cache Configs
+        public static void ConfigureResponseCache(this IServiceCollection services) => services.AddResponseCaching();
+
+        public static void ConfigureHttpCacheHeaders(this IServiceCollection services) => services.AddHttpCacheHeaders(expirationOpt =>
+        {
+            expirationOpt.CacheLocation = Marvin.Cache.Headers.CacheLocation.Public;
+            expirationOpt.MaxAge = 60;
+        },
+            validationOpt =>
+            {
+                validationOpt.MustRevalidate = false;
+            });
     }
 }

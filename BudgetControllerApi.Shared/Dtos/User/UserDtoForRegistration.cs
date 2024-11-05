@@ -13,6 +13,5 @@ namespace BudgetControllerApi.Shared.Dtos.User
         public string? Password { get; set; }
 
         public string? Email { get; set; }
-        public ICollection<string>? Roles { get; set; }
     }
 }

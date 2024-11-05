@@ -2,6 +2,7 @@
 using BudgetControllerApi.Presentation.ActionFilters;
 using BudgetControllerApi.Shared.Dtos.Store;
 using BudgetControllerApi.Shared.RequestFeatures.Concrete;
+using Marvin.Cache.Headers;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -11,6 +12,8 @@ namespace BudgetControllerApi.Presentation.Controllers
     [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/[controller]")]
     [ApiController]
+    //[ResponseCache(CacheProfileName = "5mins")]
+    [HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 80)]
     public class StoresController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
